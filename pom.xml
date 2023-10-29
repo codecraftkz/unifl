@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>kz.gov.services.gbd</groupId>
+    <artifactId>unifl</artifactId>
+    <version>20231026</version>
+    <name>GBDFL_UniversalServiceSync</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <bind-api.version>4.0.1</bind-api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>${bind-api.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/resources/xsd/</source>
+                            </sources>
+                            <outputDirectory>src/main/java</outputDirectory>
+                            <packageName>kz.gov.services.gbd.unifl</packageName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>codecraft</id>
+            <name>releases</name>
+            <url>https://nexus.codecraft.kz/repository/maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>codecraft</id>
+            <name>snapshots</name>
+            <url>https://nexus.codecraft.kz/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

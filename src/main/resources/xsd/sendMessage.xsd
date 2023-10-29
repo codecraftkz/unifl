@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://message.persistence.interactive.nat"
+           targetNamespace="http://smartbridge.b10.kz" version="1.0">
+    <xs:import namespace="http://message.persistence.interactive.nat" schemaLocation="message.xsd"/>
+
+    <xs:element name="sendMessageRequest" type="tns:Request"/>
+    <xs:element name="sendMessageResponse" type="tns:Response"/>
+</xs:schema>
