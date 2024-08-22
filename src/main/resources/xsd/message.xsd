@@ -70,6 +70,8 @@
                     </xs:documentation>
                 </xs:annotation>
             </xs:element>
+            <xs:element name="kdpToken" type="xs:string"/>
+            <xs:element name="publicKey" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="Response">
